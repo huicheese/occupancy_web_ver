@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Occupancy in SUTD</title>
+<script type="text/javascript" src="jquery.js"></script>
+<!--<script type="text/javascript" src="jquery_change.js"></script>-->
+<style type="text/css">
+ body,ul,li { padding:0; margin:0}
+ #topbar { position:relative; top:25px;}
+ #occupancy {position:relative; top:-95px;}
+ #mapBG {position:relative; top:-50px;}
+ #redLine0 {position:relative; top:0px; left:-320px; }
+ #redLine1 {position:relative; top:0px; }
+ #redLine2 {position:relative; top:0px; left:320px; }
+ #logo {position:absolute; top:25px; right:30px; }
+ ul,li { list-style:none}
+ .img-scroll {position: relative; top: -1076px; width: 1200px;}
+ .img-scroll .prev,.img-scroll .next {position: relative; top: 324px;}
+ .img-scroll .prev {left: -500px;cursor: pointer;}
+ .img-scroll .next {left: 500px;cursor:pointer;}
+ .img-list { position:relative; width:800px; height:768px; margin-top:-170px; margin-left:-10px; overflow:hidden}
+ .img-list ul { width:9999px;}
+ .img-list li { float:left; display:inline; width:800px; margin-right:10px; height:768px; text-align:center; line-height:100px;}
+</style>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+</head>
+<body background="data/src/bgLong.png" onload="MM_preloadImages('data/src/right_hover.png','data/src/left_hover.png')">
+<div align="center">
+<div id="topbar"><img src="data/src/topbar.png" /></div>
+<div id="occupancy"><img src="data/src/occupancy.png" /></div>
+<div id="mapBG"><img src="data/src/mapBG.png" /></div>
+<div class="img-scroll">
+<span class="next"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','data/src/right_hover.png',1)"><img src="file:///D|/Xianer/webStation/try3/data/src/right.png" width="68" height="192" id="Image9" /></a></span>
+<span class="prev"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','data/src/left_hover.png',1)"><img src="data/src/left.png" width="68" height="192" id="Image8" /></a></span>
+<div class="img-list">
+  <ul>
+    <li><img id="redLine0" src="data/src/redLine.png" width="282" height="6" /><img src="data/map0.png" width="800" height="768" /></li>
+    <li><img id="redLine1" src="data/src/redLine.png" width="282" height="6" /><img src="data/map1.png" width="800" height="768" /></li>
+    <li><img id="redLine2" src="data/src/redLine.png" width="282" height="6" /><img src="data/map2.png" width="800" height="768" /></li>
+  </ul>
+</div>
+</div>
+</div>
+<div><img id="logo" src="data/src/SUTD.png" /></div>
+<script type="text/javascript">
+ function DY_scroll(wraper,prev,next,img,speed,or)
+ { 
+  var wraper = $(wraper);
+  var prev = $(prev);
+  var next = $(next);
+  var img = $(img).find('ul');
+  var w = img.find('li').outerWidth(true);
+  var s = speed;
+  next.click(function()
+       {
+        img.animate({'margin-left':-w},function()
+                  {
+                   img.find('li').eq(0).appendTo(img);
+                   img.css({'margin-left':0});
+                   });
+        });
+  prev.click(function()
+       {
+        img.find('li:last').prependTo(img);
+        img.css({'margin-left':-w});
+        img.animate({'margin-left':0});
+        });
+  if (or == true)
+  {
+   ad = setInterval(function() { next.click();},s*1000);
+   wraper.hover(function(){clearInterval(ad);},function(){ad = setInterval(function() { next.click();},s*1000);});
+
+  }
+ }
+ DY_scroll('.img-scroll','.prev','.next','.img-list',3,false);// true为自动播放，不加此参数或false就默认不自动
+</script>
+</body>
+</html>
