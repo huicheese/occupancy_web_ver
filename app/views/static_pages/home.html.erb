@@ -33,24 +33,33 @@ function MM_swapImage() { //v3.0
 </script>
 </head>
   
-<body background="~/occupancy_web/app/assets/images/bgLong.png" onload="MM_preloadImages('~/occupancy_web/app/assets/images/right_hover.png','~/occupancy_web/app/assets/images/left_hover.png')">
+<body background= image_tag("bgLong.png") onload="MM_preloadImages( "<%= image_tag("right_hover.png", alt: "right_hover") %>" ,"<%= image_tag("left_hover.png", alt: "left_hover") %>" >
+
 <div align="center">
-<div id="topbar"><img src="~/occupancy_web/app/assets/images/topbar.png" /></div>
-<div id="occupancy"><img src="~/occupancy_web/app/assets/images/occupancy.png" /></div>
-<div id="mapBG"><img src="~/occupancy_web/app/assets/images/mapBG.png" /></div>
+  
+<!-- <div id="topbar"><img src=image_path("topbar.png") /></div> -->
+  <div id="topbar"><%= image_tag("topbar.png", id:"topbar") %></div>
+<!-- <div id="occupancy"><img src="occupancy.png" /></div> -->
+  <div id="occupancy"><%= image_tag("occupancy.png", id:"occupancy") %></div>
+<!-- <div id="mapBG"><img src="mapBG.png" /></div> -->
+  <div id="mapBG"><%= image_tag("mapBG.png", id:"mapBG") %></div>
 <div class="img-scroll">
-<span class="next"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','~/occupancy_web/app/assets/images/right_hover.png',1)"><img src="right.png" width="68" height="192" id="Image9" /></a></span>
-<span class="prev"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','~/occupancy_web/app/assets/images/left_hover.png',1)"><img src="left.png" width="68" height="192" id="Image8" /></a></span>
+<span class="next"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','', "<%= image_tag("right_hover.png", alt: "logo", id: "logo") %>" ,1)"><%= image_tag("right.png",width:"68",height:"192",id:"Image9") %></a></span>
+<span class="prev"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','',"<%= image_tag("left_hover.png")%>",1)"><%= image_tag("left.png", height:"192", width:"68", id:"Image8") %></a></span>
 <div class="img-list">
   <ul>
-    <li><img id="redLine0" src="~/occupancy_web/app/assets/images/redLine.png" width="282" height="6" /><img src="~/occupancy_web/app/assets/images/map0.png" width="800" height="768" /></li>
-    <li><img id="redLine1" src="~/occupancy_web/app/assets/images/redLine.png" width="282" height="6" /><img src="~/occupancy_web/app/assets/images/map1.png" width="800" height="768" /></li>
-    <li><img id="redLine2" src="~/occupancy_web/app/assets/images/redLine.png" width="282" height="6" /><img src="~/occupancy_web/app/assets/images/map2.png" width="800" height="768" /></li>
+<!--     <li><img id="redLine0" src="redLine.png" width="282" height="6" /><img src="map0.png" width="800" height="768" /></li>
+    <li><img id="redLine1" src="redLine.png" width="282" height="6" /><img src="map1.png" width="800" height="768" /></li>
+    <li><img id="redLine2" src="redLine.png" width="282" height="6" /><img src="map2.png" width="800" height="768" /></li> -->
+    <li><%= image_tag("redLine.png", id:"redLine0", width:"282", height:"6") %> <%= image_tag("map0.png", height:"768", width:"800") %></li>
+    <li><%= image_tag("redLine.png", id:"redLine1", width:"282", height:"6") %> <%= image_tag("map1.png", height:"768", width:"800") %></li>
+    <li><%= image_tag("redLine.png", id:"redLine2", width:"282", height:"6") %> <%= image_tag("map2.png", height:"768", width:"800") %></li>
   </ul>
 </div>
 </div>
 </div>
-<div><img id="logo" src="http://www.dropbox.com/s/20zm83gyf1xby5o/SUTD.png?dl=0" /></div>
+<!-- <div><img id="logo" src="http://www.dropbox.com/s/20zm83gyf1xby5o/SUTD.png?dl=0" /></div> -->
+  <div><%= image_tag("SUTD.png", alt: "logo", id: "logo") %></div>
 <script type="text/javascript">
  function DY_scroll(wraper,prev,next,img,speed,or)
  { 
