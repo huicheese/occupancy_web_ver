@@ -35,7 +35,7 @@ function MM_swapImage() { //v3.0
 </script>
 </head>
   
-<body background= <%= image_tag("bgLong.png") %> onload="MM_preloadImages( '"<%= image_tag("right_hover.png") %>"' ,'"<%= image_tag("left_hover.png") %>"'>
+  <body background= <%= asset_path("bgLong.png") %> onload="MM_preloadImages( '"<%= asset_path("right_hover.png") %>"' ,'"<%= asset_path("left_hover.png") %>"'>
 
 <div align="center">
   
@@ -45,6 +45,7 @@ function MM_swapImage() { //v3.0
   <div id="occupancy"><%= image_tag("occupancy.png", id:"occupancy") %></div>
 <!-- <div id="mapBG"><img src="mapBG.png" /></div> -->
   <div id="mapBG"><%= image_tag("mapBG.png", id:"mapBG") %></div>
+  
 <div class="img-scroll">
   
 <span class="next"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage("<%= image_tag("right.png",width:"68",height:"192",id:"Image9") %>",'', "<%= image_tag("right_hover.png", alt: "logo", id: "logo") %>" ,1)"><%= image_tag("right.png",width:"68",height:"192",id:"Image9") %></a></span>
