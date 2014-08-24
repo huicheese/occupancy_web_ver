@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-OccupancyWeb::Application.config.secret_key_base = 'e3944f6476c792d0000d8fd5012075f1c8ad337d35b7b380214a6c1cae2aa4cdd1111f0f075c4471020c387b5ed555e5eec6abb475def5624c4dc3696fdf04ea'
+OccupancyWeb::Application.config.secret_key_base = '0d02c9ad2a45032efd5e3d311eceb4e75b3fb3aafbde1f5042fc16b5f8e72190450d34873ec8775904f197754d829368343ba653282af1329b6665e9c57cab87'
