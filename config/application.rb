@@ -21,6 +21,6 @@ module OccupancyWeb
     # config.i18n.default_locale = :de
     config.serve_static_assets = true
     
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.js)
   end
 end
