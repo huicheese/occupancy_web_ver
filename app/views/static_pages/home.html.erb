@@ -3,26 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Occupancy in SUTD</title>
-<script type="text/javascript" src="jquery.js"></script>
+  <%= javascript_include_tag 'jquery' %> 
+<%= csrf_meta_tags %>
+<script type="text/javascript" src="~/occupancy_web/app/assets/javascripts/jquery.js"></script>
 <!--<script type="text/javascript" src="jquery_change.js"></script>-->
-<style type="text/css">
- body,ul,li { padding:0; margin:0}
- #topbar { position:relative; top:25px;}
- #occupancy {position:relative; top:-95px;}
- #mapBG {position:relative; top:-50px;}
- #redLine0 {position:relative; top:0px; left:-320px; }
- #redLine1 {position:relative; top:0px; }
- #redLine2 {position:relative; top:0px; left:320px; }
- #logo {position:absolute; top:25px; right:30px; }
- ul,li { list-style:none}
- .img-scroll {position: relative; top: -1076px; width: 1200px;}
- .img-scroll .prev,.img-scroll .next {position: relative; top: 324px;}
- .img-scroll .prev {left: -500px;cursor: pointer;}
- .img-scroll .next {left: 500px;cursor:pointer;}
- .img-list { position:relative; width:800px; height:768px; margin-top:-170px; margin-left:-10px; overflow:hidden}
- .img-list ul { width:9999px;}
- .img-list li { float:left; display:inline; width:800px; margin-right:10px; height:768px; text-align:center; line-height:100px;}
-</style>
+
 <script type="text/javascript">
 function MM_swapImgRestore() { //v3.0
   var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
@@ -47,24 +32,25 @@ function MM_swapImage() { //v3.0
 }
 </script>
 </head>
-<body background="bgLong.png" onload="MM_preloadImages('right_hover.png','left_hover.png')">
+  
+<body background="~/occupancy_web/app/assets/images/bgLong.png" onload="MM_preloadImages('~/occupancy_web/app/assets/images/right_hover.png','~/occupancy_web/app/assets/images/left_hover.png')">
 <div align="center">
-<div id="topbar"><img src="topbar.png" /></div>
-<div id="occupancy"><img src="occupancy.png" /></div>
-<div id="mapBG"><img src="mapBG.png" /></div>
+<div id="topbar"><img src="~/occupancy_web/app/assets/images/topbar.png" /></div>
+<div id="occupancy"><img src="~/occupancy_web/app/assets/images/occupancy.png" /></div>
+<div id="mapBG"><img src="~/occupancy_web/app/assets/images/mapBG.png" /></div>
 <div class="img-scroll">
-<span class="next"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','right_hover.png',1)"><img src="right.png" width="68" height="192" id="Image9" /></a></span>
-<span class="prev"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','left_hover.png',1)"><img src="left.png" width="68" height="192" id="Image8" /></a></span>
+<span class="next"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','~/occupancy_web/app/assets/images/right_hover.png',1)"><img src="right.png" width="68" height="192" id="Image9" /></a></span>
+<span class="prev"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','~/occupancy_web/app/assets/images/left_hover.png',1)"><img src="left.png" width="68" height="192" id="Image8" /></a></span>
 <div class="img-list">
   <ul>
-    <li><img id="redLine0" src="redLine.png" width="282" height="6" /><img src="map0.png" width="800" height="768" /></li>
-    <li><img id="redLine1" src="redLine.png" width="282" height="6" /><img src="map1.png" width="800" height="768" /></li>
-    <li><img id="redLine2" src="redLine.png" width="282" height="6" /><img src="map2.png" width="800" height="768" /></li>
+    <li><img id="redLine0" src="~/occupancy_web/app/assets/images/redLine.png" width="282" height="6" /><img src="~/occupancy_web/app/assets/images/map0.png" width="800" height="768" /></li>
+    <li><img id="redLine1" src="~/occupancy_web/app/assets/images/redLine.png" width="282" height="6" /><img src="~/occupancy_web/app/assets/images/map1.png" width="800" height="768" /></li>
+    <li><img id="redLine2" src="~/occupancy_web/app/assets/images/redLine.png" width="282" height="6" /><img src="~/occupancy_web/app/assets/images/map2.png" width="800" height="768" /></li>
   </ul>
 </div>
 </div>
 </div>
-<div><img id="logo" src="SUTD.png" /></div>
+<div><img id="logo" src="http://www.dropbox.com/s/20zm83gyf1xby5o/SUTD.png?dl=0" /></div>
 <script type="text/javascript">
  function DY_scroll(wraper,prev,next,img,speed,or)
  { 
